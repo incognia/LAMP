@@ -1,4 +1,4 @@
-FROM php:8.0.0-apache
+FROM php:7.3.19-apache-buster
 ARG DEBIAN_FRONTEND=noninteractive
 RUN docker-php-ext-install mysqli
 # Include alternative DB driver
