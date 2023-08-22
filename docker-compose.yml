@@ -23,6 +23,7 @@ services:
         container_name: LAMP_WWW
         hostname: www
         ports: 
+            - "8022:22"
             - "80:80"
         volumes:
             - ./www:/var/www/html
