@@ -13,4 +13,4 @@ docker volume rm lamp_persistent
 yes | docker system prune
 
 # Iniciar los contenedores definidos en el compose file en modo detached (en segundo plano).
-docker compose up -d
+# docker compose up -d

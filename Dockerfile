@@ -66,6 +66,7 @@ COPY app/* /app/
 # Habilitar extensión de PHP "readline"
 RUN mv /app/readline.ini /usr/local/etc/php/conf.d/docker-php-ext-readline.ini
 
+# Copiar el "entrypoint" personalizado
 RUN cat /app/entrypoint > /usr/local/bin/docker-php-entrypoint
 
 # Configurar claves SSH
