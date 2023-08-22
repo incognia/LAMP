@@ -17,6 +17,7 @@ services:
         networks:
             - default
     www:
+        image: incogniadev/lamp-www:0.0.1-buster
         build: .
         container_name: LAMP_WWW
         ports: 
