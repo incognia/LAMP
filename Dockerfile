@@ -32,6 +32,7 @@ RUN docker-php-ext-install \
     opcache
 
 COPY app/* /app/
+# Habilitar "readline"
 RUN cat /app/readline.ini > /usr/local/etc/php/conf.d/docker-php-ext-readline.ini
 
 RUN a2enmod rewrite
