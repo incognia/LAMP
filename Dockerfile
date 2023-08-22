@@ -10,6 +10,7 @@ RUN apt-get update \
     locate \
     nano \
     openssh-server \
+    rsync \
     sudo \
     && apt-get install -y sendmail libpng-dev \
 #   && apt-get install -y libzip-dev \
@@ -51,5 +52,9 @@ COPY app/* /app/
 RUN cat /app/readline.ini > /usr/local/etc/php/conf.d/docker-php-ext-readline.ini
 
 RUN cat /app/entrypoint > /usr/local/bin/docker-php-entrypoint
+
+RUN mkdir /home/incognia/.ssh
+RUN cat /app/keys > /home/incognia/.ssh/authorized_keys
+RUN chown -R incognia:incognia /home/incognia
 
 RUN a2enmod rewrite
