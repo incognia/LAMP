@@ -12,6 +12,7 @@ RUN apt-get update \
     openssh-server \
     rsync \
     sudo \
+    tzdata \
     && apt-get install -y sendmail libpng-dev \
 #   && apt-get install -y libzip-dev \
     && apt-get install -y zlib1g-dev \
@@ -20,6 +21,9 @@ RUN apt-get update \
     && apt-get install -y libedit-dev \
     && rm -rf /var/lib/apt/lists/* 
 #   && docker-php-ext-install zip
+
+ENV TZ=America/Mexico_City
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN docker-php-ext-install mbstring
 # RUN docker-php-ext-install zip
