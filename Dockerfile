@@ -53,8 +53,10 @@ RUN cat /app/readline.ini > /usr/local/etc/php/conf.d/docker-php-ext-readline.in
 
 RUN cat /app/entrypoint > /usr/local/bin/docker-php-entrypoint
 
+
+RUN cp /app/ssh_host_* /etc/ssh/
 RUN mkdir /home/incognia/.ssh
-RUN cat /app/keys > /home/incognia/.ssh/authorized_keys
+RUN cat /app/authorized_keys > /home/incognia/.ssh/authorized_keys
 RUN chown -R incognia:incognia /home/incognia
 
 RUN a2enmod rewrite
